@@ -1,0 +1,74 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 13 Feb 2021 02:43:01 +0000
+Source: git-annex
+Architecture: source
+Version: 8.20210127+git147-g4407ade4c-1~ndall+1
+Distribution: neurodebian
+Urgency: medium
+Maintainer: Richard Hartmann <richih@debian.org>
+Changed-By: <runner@shub-builder-12590-datalad-datalad-extensions-master-builde.c.shub2-179321.internal>
+Changes:
+ git-annex (8.20210127+git147-g4407ade4c-1~ndall+1) neurodebian; urgency=medium
+ .
+   [ Joey Hess ]
+   * annex.stalldetection can now be set to "true" to make git-annex
+     do automatic stall detection when it detects a remote is updating its
+     transfer progress consistently enough.
+   * When annex.stalldetection is not enabled and a likely stall is
+     detected, display a suggestion to enable it.
+   * Commands can be added to git-annex, by installing a program in PATH
+     with a name starting with "git-annex-"
+   * Fix a reversion that made import of a tree from a special remote
+     result in a merge that deleted files that were not preferred content
+     of that special remote.
+   * When adding files to an adjusted branch set up by --unlock-present,
+     add them unlocked, not locked.
+   * Fix an oddity in matching options and preferred content expressions
+     such as "foo (bar or baz)", which was incorrectly handled as if
+     it were "(foo or bar) and baz)" rather than the intended
+     "foo and (bar or baz)"
+   * When a git remote is configured with an absolute path, use that
+     path, rather than making it relative.
+   * get: Improve output when failing to get a file fails.
+   * Fix build on openbsd.
+     Thanks, James Cook for the patch.
+   * Include libkqueue.h file needed to build the assistant on BSDs.
+   * Tahoe: Avoid verifying hash after download, since tahoe does sufficient
+     verification itself.
+   * Checksum as content is received from a remote git-annex repository,
+     rather than doing it in a second pass.
+   * Bugfix: fsck --from a ssh remote did not actually check that the
+     content on the remote is not corrupted.
+ .
+   [  ]
+   * Backported fresh snapshot
+Checksums-Sha1:
+ 47a70b70cbc49b6705f8568de9eb13cf1b7ecc3b 4681 git-annex_8.20210127+git147-g4407ade4c-1~ndall+1.dsc
+ b415dc4824933f67afd9646154e57baea43fd8c8 61782586 git-annex_8.20210127+git147-g4407ade4c-1~ndall+1.tar.gz
+ 571717de305ac0d3de43e5cef9d8a756f037e6e9 18495 git-annex_8.20210127+git147-g4407ade4c-1~ndall+1_source.buildinfo
+Checksums-Sha256:
+ 81c48922200f35812f052cd376ece6fbed06fe6ca256d4d7f41635cd2c1d631b 4681 git-annex_8.20210127+git147-g4407ade4c-1~ndall+1.dsc
+ b602fe744360dd7fe20a8747a9da5dc6d01b00bc68ca85488c6031621d60dc81 61782586 git-annex_8.20210127+git147-g4407ade4c-1~ndall+1.tar.gz
+ 7c45dd6ae4b1507a167aa4d5ab28fe880199a4ecf256ef8292b435b723432e29 18495 git-annex_8.20210127+git147-g4407ade4c-1~ndall+1_source.buildinfo
+Files:
+ 759af445b8361c0291b69dbd244474d0 4681 utils optional git-annex_8.20210127+git147-g4407ade4c-1~ndall+1.dsc
+ aaf955b87ae58e4074aafd4e3a1f5e74 61782586 utils optional git-annex_8.20210127+git147-g4407ade4c-1~ndall+1.tar.gz
+ 21a640bd30312cddae2994f83888cbd9 18495 utils optional git-annex_8.20210127+git147-g4407ade4c-1~ndall+1_source.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBCgAdFiEEE6EJMpYVRYQkXgMAyY/EnTbasX8FAmAnPL8ACgkQyY/EnTba
+sX9lvwwA0tan9A+iyLKWdyCNOJn5VO8bdctnvUEMlspqZ2DgcDkmYr4yOnt2RU5+
+hs9ibp0py8AA88TuKbfa6RLMhTZ2GwkE2fNWs041pU0aG1og8wcW51HCiIqRhFhK
+l5pNNMElloJr+f1TbcinD+6IHiZsJ1AJK2w3ip4g5PLBvmm0nTkTAalXI9lt/d23
+fJX45BFHf85txB6Q7YkwDoyjhacCRfdZpLTbgVKeqHTIX1hV6RutDGq9iMTuWET2
+HTq+uhG8odwd+ZjQEAQo3CMId/SwcHIF0sE7kVjkGPzPxjRUXLLouv4XrlabU+FW
+qhHyG7X0SHmn0Lm5xpbjamnWA+kl6vF+QrFlKbfs2QvmwBjAqK3g4q1L4/247kjI
+MFoGbf7cH3B75LIlnUBXfQO462N+ojOvyo7rxEJVv3oYDnPz2F/DB6caXzA+LqgY
+mbdsbTZZNjn0F8/anU3wO062ntJ3vEyBAJFdXygeUkfgUAAZYU5sGZJIR79KMfWP
+7PFxHcfv
+=LACX
+-----END PGP SIGNATURE-----

@@ -1,0 +1,74 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 13 Feb 2021 02:43:01 +0000
+Source: git-annex
+Binary: git-annex-standalone
+Architecture: amd64
+Version: 8.20210127+git147-g4407ade4c-1~ndall+1
+Distribution: neurodebian
+Urgency: medium
+Maintainer: Richard Hartmann <richih@debian.org>
+Changed-By: <runner@shub-builder-12590-datalad-datalad-extensions-master-builde.c.shub2-179321.internal>
+Description:
+ git-annex-standalone - manage files with git, without checking their contents into git -
+Changes:
+ git-annex (8.20210127+git147-g4407ade4c-1~ndall+1) neurodebian; urgency=medium
+ .
+   [ Joey Hess ]
+   * annex.stalldetection can now be set to "true" to make git-annex
+     do automatic stall detection when it detects a remote is updating its
+     transfer progress consistently enough.
+   * When annex.stalldetection is not enabled and a likely stall is
+     detected, display a suggestion to enable it.
+   * Commands can be added to git-annex, by installing a program in PATH
+     with a name starting with "git-annex-"
+   * Fix a reversion that made import of a tree from a special remote
+     result in a merge that deleted files that were not preferred content
+     of that special remote.
+   * When adding files to an adjusted branch set up by --unlock-present,
+     add them unlocked, not locked.
+   * Fix an oddity in matching options and preferred content expressions
+     such as "foo (bar or baz)", which was incorrectly handled as if
+     it were "(foo or bar) and baz)" rather than the intended
+     "foo and (bar or baz)"
+   * When a git remote is configured with an absolute path, use that
+     path, rather than making it relative.
+   * get: Improve output when failing to get a file fails.
+   * Fix build on openbsd.
+     Thanks, James Cook for the patch.
+   * Include libkqueue.h file needed to build the assistant on BSDs.
+   * Tahoe: Avoid verifying hash after download, since tahoe does sufficient
+     verification itself.
+   * Checksum as content is received from a remote git-annex repository,
+     rather than doing it in a second pass.
+   * Bugfix: fsck --from a ssh remote did not actually check that the
+     content on the remote is not corrupted.
+ .
+   [  ]
+   * Backported fresh snapshot
+Checksums-Sha1:
+ acf931ff8d2b33ed4454780c5aa01a4987972b44 67360584 git-annex-standalone_8.20210127+git147-g4407ade4c-1~ndall+1_amd64.deb
+ a6f30b53ef664f3a4a6f74086a8b4993b5a97fc8 18543 git-annex_8.20210127+git147-g4407ade4c-1~ndall+1_amd64.buildinfo
+Checksums-Sha256:
+ 116ec622e344f8ebaef142a3ccfa22aa25bed2bf1e14c4a7c0b31b8c0fcadd02 67360584 git-annex-standalone_8.20210127+git147-g4407ade4c-1~ndall+1_amd64.deb
+ 9873820d2fac611d2d1a02b634f5782f061c26a6fd8ccf594268d19852aeea49 18543 git-annex_8.20210127+git147-g4407ade4c-1~ndall+1_amd64.buildinfo
+Files:
+ 628236c3593670cd11f0084dc78d0c20 67360584 utils optional git-annex-standalone_8.20210127+git147-g4407ade4c-1~ndall+1_amd64.deb
+ 7a215208c7f6415d69a929c6dc3a7da6 18543 utils optional git-annex_8.20210127+git147-g4407ade4c-1~ndall+1_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBCgAdFiEEE6EJMpYVRYQkXgMAyY/EnTbasX8FAmAnPsYACgkQyY/EnTba
+sX9DoQwAqBGh1eZdpEp0gT46a/KQQ1hpxQViWCo6InfveBqv3kQ47GfinqnKlWpP
+Wd3UN0JjDMNiIlcwfe34hy1NeycVCgPXcb10sF9jLGketV/cqbYUllDmU1cmL1v/
+1b5QkUZ2f8vanVjASWsxNUwV05tgr3CRfT1/DVuvvR7UjBEofTwXhJeqHimI78+N
+smz8dxGG9Hb6sTzQyltg0hrlTsrkQA+TlDbObHjDi4mewuSKy2ofWb78ZdEdyH/0
+loUDLzPIy/V7/7WfXfSKY7/bqlo4T0uRdZj3B/kxCvUu7+3zTTG9BCaywjPso8p2
+yBCtd1T4d4Q1gw+06ANmy8CUmsn55EQ58RCWaJ8USRtJE+Yl8lFddvVyWGOLdz3Q
+MELmXNqgH7hyMIOC9UQS9Yz21zGplkBl5nLu639DDgtDbQakjZtbzOS/dggn/wfR
+RJzr2ncXkAW5o/s/sPon2PMYiCSZ8wq1PCC2jGjdwuwGzpOepacxGEPpPaJWl51t
+MiEElsqB
+=IF8P
+-----END PGP SIGNATURE-----
