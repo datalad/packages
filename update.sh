@@ -3,7 +3,7 @@
 set -eu
 src=/mnt/datasets/datalad/ci/git-annex/releases/
 
-set -x
+# set -x
 cd $(dirname $0)
 
 latest=$(cd "$src" && /bin/ls -1d *.20* | sort -n | sed -e 's,/,,g' | tail -n 1 )
@@ -14,7 +14,7 @@ if [ $latest != "$current" ]; then
     cp -L "$src/$latest"/*.dmg osx/
     cp -L "$src/$latest"/*.exe windows/
     echo "$latest" >| windows/dist/build-version
-    datalad save -m "Updated to $latest from $current" -d^
+    datalad save -m "Updated to $latest from $current" -d^ .
     datalad push --to=datalad-public
 fi
 
