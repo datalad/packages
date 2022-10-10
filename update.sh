@@ -14,7 +14,7 @@ if [ $latest != "$current" ]; then
     cp -L "$src/$latest"/*.dmg osx/
     cp -L "$src/$latest"/*.exe windows/
     echo "$latest" >| windows/dist/build-version
-    datalad save -m "Updated to $latest from $current" -d^ .
+    datalad save -m "Updated to $latest from $current" -d^ ./
     datalad push --to=datalad-public
 fi
 
