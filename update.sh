@@ -11,6 +11,7 @@ current=$(cat latest-version)
 
 if [ $latest != "$current" ]; then
     cp -L "$src/$latest"/*.{deb,changes,dsc,tar.gz} neurodebian/
+    ( cd neurodebian/; for f in *.ndall*; do mv "$f" "${f//.ndall/~ndall}"; done; )
     cp -L "$src/$latest"/*.dmg osx/
     cp -L "$src/$latest"/*.exe windows/
     echo "$latest" >| latest-version
