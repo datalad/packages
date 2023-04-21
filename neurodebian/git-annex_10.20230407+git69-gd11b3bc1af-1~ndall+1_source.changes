@@ -1,0 +1,71 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 20 Apr 2023 02:49:19 +0000
+Source: git-annex
+Architecture: source
+Version: 10.20230407+git69-gd11b3bc1af-1~ndall+1
+Distribution: neurodebian
+Urgency: medium
+Maintainer: Richard Hartmann <richih@debian.org>
+Changed-By: <runner@9e4cb13125d6>
+Changes:
+ git-annex (10.20230407+git69-gd11b3bc1af-1~ndall+1) neurodebian; urgency=medium
+ .
+   [ Joey Hess ]
+   * Many commands now quote filenames that contain unusual characters the
+     same way that git does, to avoid exposing control characters to the terminal.
+   * Support core.quotePath, which can be set to false to display utf8
+     characters as-is in filenames.
+   * Control characters in non-filename data coming from the repository or
+     other possible untrusted sources are filtered out of the display of many
+     commands. When the command output is intended for use in scripting,
+     control characters are only filtered out when displaying to the
+     terminal.
+   * find, findkeys, examinekey: When outputting to a terminal and --format
+     is not used, quote unusual characters.
+     (Similar to the behavior of GNU find.)
+   * addurl --preserve-filename now rejects filenames that contain other
+     control characters, besides the escape sequences it already rejected.
+   * init: Avoid autoenabling special remotes that have control characters
+     in their names.
+   * whereused: Fix display of branch:file when run in a subdirectory.
+   * enableremote: Support enableremote of a git remote (that was previously
+     set up with initremote) when additional parameters such as autoenable=
+     are passed.
+   * configremote: New command, currently limited to changing autoenable=
+     setting of a special remote.
+   * assistant --autostop: Avoid crashing when ~/.config/git-annex/autostart
+     lists a directory that it cannot chdir to.
+   * Honor --force option when operating on a local git remote.
+ .
+   [  ]
+   * Backported fresh snapshot
+Checksums-Sha1:
+ d834fd058504e177661f130082309dc233eb80c7 4817 git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1.dsc
+ 63cc4c6a2ebbc34607c9b7cfefa41fa79c69f68f 69437776 git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1.tar.gz
+ 4239c92028d0a842604cc4adcb218f91633b73bf 18394 git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1_source.buildinfo
+Checksums-Sha256:
+ 39f47cb864e7f7299ae4a9bc7c9af91f025e9efecddaee46ef21c20d2eed2e96 4817 git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1.dsc
+ 2ecb26740c4f3ac8d618c52e435d7d4f0fe47d2312df69760c3a342aa3b167d5 69437776 git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1.tar.gz
+ 0d8d6acd49abe2284c8c26ea2913c895897c69c7cdc7085797bcd9cbc4976d52 18394 git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1_source.buildinfo
+Files:
+ 6aade2455277ddab23d7bcd596933352 4817 utils optional git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1.dsc
+ 772571943f299fae4c711fcf14e639c9 69437776 utils optional git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1.tar.gz
+ edbd763371296b9e688853ea10eb8709 18394 utils optional git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1_source.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBCgAdFiEEE6EJMpYVRYQkXgMAyY/EnTbasX8FAmRAqDkACgkQyY/EnTba
+sX9YHQv+Loy4N7YO/mJ3Hmv9JMx5KA9n3GAF5TmeEbPjiCVZ7dOEz1+UJxQbwXTi
+Z2bZpr/h8YEzxLh5GKrgCa+4wC8TZr1CnXzNUL0OHyLDVpIDG8TJX2ZRFLcUJGF5
+OPTf2bA0n+hr9eIUf4IY2f/gYzYbvBcZIHUoI3BcVj+8eeMUyKLWOEdLSYaYo+EC
+6uzAq6kwRETRFZYdMdM5mgp7HnE++P4+Sx884TspHSHPXmE2C1+cuzq/aZCpylVi
+pQZiL5Ri/7W+TzLCMtGupajTjAYDpntzSF7jPgw5gdWIShePTkDILl7+Vqvb2ySX
+yIVmug9xt0qd0e5zIiSJhCqOYgIlxR3ztAO+YdZT9ORI5XOzcs/zVhoCOESa4fTl
+1QbrIo40vIdQkFXrRL8VphuMt6vEz2m+8rHKExouJuWdVFiMp1m8ooGlJ3wx+fre
+etxROE7GK6ZRwExrXwqDOTgE/jVUjYuILdRGOirkbBwHXnIAaHCofw1HbdAV+wLI
+LEEDFbMC
+=EsTK
+-----END PGP SIGNATURE-----

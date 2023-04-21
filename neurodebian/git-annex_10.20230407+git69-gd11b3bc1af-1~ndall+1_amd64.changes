@@ -1,0 +1,71 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 20 Apr 2023 02:49:19 +0000
+Source: git-annex
+Binary: git-annex-standalone
+Architecture: amd64
+Version: 10.20230407+git69-gd11b3bc1af-1~ndall+1
+Distribution: neurodebian
+Urgency: medium
+Maintainer: Richard Hartmann <richih@debian.org>
+Changed-By: <runner@9e4cb13125d6>
+Description:
+ git-annex-standalone - manage files with git, without checking their contents into git -
+Changes:
+ git-annex (10.20230407+git69-gd11b3bc1af-1~ndall+1) neurodebian; urgency=medium
+ .
+   [ Joey Hess ]
+   * Many commands now quote filenames that contain unusual characters the
+     same way that git does, to avoid exposing control characters to the terminal.
+   * Support core.quotePath, which can be set to false to display utf8
+     characters as-is in filenames.
+   * Control characters in non-filename data coming from the repository or
+     other possible untrusted sources are filtered out of the display of many
+     commands. When the command output is intended for use in scripting,
+     control characters are only filtered out when displaying to the
+     terminal.
+   * find, findkeys, examinekey: When outputting to a terminal and --format
+     is not used, quote unusual characters.
+     (Similar to the behavior of GNU find.)
+   * addurl --preserve-filename now rejects filenames that contain other
+     control characters, besides the escape sequences it already rejected.
+   * init: Avoid autoenabling special remotes that have control characters
+     in their names.
+   * whereused: Fix display of branch:file when run in a subdirectory.
+   * enableremote: Support enableremote of a git remote (that was previously
+     set up with initremote) when additional parameters such as autoenable=
+     are passed.
+   * configremote: New command, currently limited to changing autoenable=
+     setting of a special remote.
+   * assistant --autostop: Avoid crashing when ~/.config/git-annex/autostart
+     lists a directory that it cannot chdir to.
+   * Honor --force option when operating on a local git remote.
+ .
+   [  ]
+   * Backported fresh snapshot
+Checksums-Sha1:
+ 7f95e8b38d7d1677b1690183ee5a947f1856aaf7 50192744 git-annex-standalone_10.20230407+git69-gd11b3bc1af-1~ndall+1_amd64.deb
+ 1c83471c31c05d649a8a0096d3cf9971ae368d29 18471 git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1_amd64.buildinfo
+Checksums-Sha256:
+ 3e3b8291c4b992f1ac10f25ed9b9ba1921ae3eb6e229ae2975cca51f9110d2ed 50192744 git-annex-standalone_10.20230407+git69-gd11b3bc1af-1~ndall+1_amd64.deb
+ a6b593fb699702b643a87a7c735e99c72adaadb4c4d0d436a7d47d68c40d1403 18471 git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1_amd64.buildinfo
+Files:
+ 1a9bdae8eb3ffe7418d693fa8805eb8f 50192744 utils optional git-annex-standalone_10.20230407+git69-gd11b3bc1af-1~ndall+1_amd64.deb
+ 1226ee9e106660a8fe7ea4875e1fe947 18471 utils optional git-annex_10.20230407+git69-gd11b3bc1af-1~ndall+1_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBCgAdFiEEE6EJMpYVRYQkXgMAyY/EnTbasX8FAmRAqhkACgkQyY/EnTba
+sX9JJwwAxnPQlFPqKp+SxkBmnrSsluxDUXYIsDKJnZo+IJ7GVm95lELnZxQWtq4B
+TzCI6Z8B2937X96KleCXfEjV27vUMp6v8SNtQZgCVntPpOCJ0PVkZiHQXKD3Ecmg
+V9Cs1Mzb5anbfSteOf5VgLSAzYqxHxTa7DVorSXzZBCCRVDBnXlYQaaw7jRFndK9
+yPIxgGtU/F9TjBIU586H9+vgULpA7H3UqVTZ+Tx5NTSlt9xZdYeEuxhcPM1un3vv
+rgvte6B326RMwstdUV1yIUdYHJkhmVDn3fpeDfIf7usS/wOGhHxV45A60hnbl640
+YgVPHT22kecXpagkT9j7/hScFSYprJPVdKrm5kP+iwQEqq5zlttApffl1HmiZUMD
+vjLWwcVV/fcHNxC7lhOGdivKqvS+ScyLeosQbZrmaDZz5MPbItACssEAKgpOsjpY
+mX295Oi0NpMgTmb1zrlcBygW/CbrvBe3pbTEHzY7QPL4z7AXDANsyu5ksp0JJK+v
+LEWyB0Sf
+=GSQ1
+-----END PGP SIGNATURE-----
