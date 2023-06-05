@@ -1,0 +1,125 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Mon, 05 Jun 2023 03:06:00 +0000
+Source: git-annex
+Binary: git-annex-standalone
+Architecture: amd64
+Version: 10.20230407+git277-g2c2a84caac-1~ndall+1
+Distribution: neurodebian
+Urgency: medium
+Maintainer: Richard Hartmann <richih@debian.org>
+Changed-By: <runner@9e4cb13125d6>
+Description:
+ git-annex-standalone - manage files with git, without checking their contents into git -
+Changes:
+ git-annex (10.20230407+git277-g2c2a84caac-1~ndall+1) neurodebian; urgency=medium
+ .
+   [ Joey Hess ]
+   * Split out two new commands, git-annex pull and git-annex push.
+     Those plus a git commit are equivilant to git-annex sync.
+     (Note that the new commands default to syncing content, unless
+     annex.synccontent is explicitly set to false.)
+   * assist: New command, which is the same as git-annex sync but with
+     new files added and content transferred by default.
+   * Many commands now quote filenames that contain unusual characters the
+     same way that git does, to avoid exposing control characters to the terminal.
+   * Support core.quotePath, which can be set to false to display utf8
+     characters as-is in filenames.
+   * Control characters in non-filename data coming from the repository or
+     other possible untrusted sources are filtered out of the display of many
+     commands. When the command output is intended for use in scripting,
+     control characters are only filtered out when displaying to the
+     terminal.
+   * find, findkeys, examinekey: When outputting to a terminal and --format
+     is not used, quote control characters. Output to a pipe is unchanged.
+     (Similar to the behavior of GNU find.)
+   * addurl --preserve-filename now rejects filenames that contain other
+     control characters, besides the escape sequences it already rejected.
+   * init: Avoid autoenabling special remotes that have control characters
+     in their names.
+   * whereused: Fix display of branch:file when run in a subdirectory.
+   * enableremote: Support enableremote of a git remote (that was previously
+     set up with initremote) when additional parameters such as autoenable=
+     are passed.
+   * configremote: New command, currently limited to changing autoenable=
+     setting of a special remote.
+   * assistant --autostop: Avoid crashing when ~/.config/git-annex/autostart
+     lists a directory that it cannot chdir to.
+   * Honor --force option when operating on a local git remote.
+   * When a nonexistant file is passed to a command and
+     --json-error-messages is enabled, output a JSON object indicating the
+     problem. (But git ls-files --error-unmatch still displays errors about
+     such files in some situations.)
+   * Support core.sharedRepository=0xxx at long last.
+   * Bug fix: Create .git/annex/, .git/annex/fsckdb,
+     .git/annex/sentinal, .git/annex/sentinal.cache, and
+     .git/annex/journal/* with permissions configured by core.sharedRepository.
+   * Bug fix: Lock files were created with wrong modes for some combinations
+     of core.sharedRepository and umask.
+   * initremote: Avoid creating a remote that is not encrypted when gpg is
+     broken.
+   * Support --json and --json-error-messages in many more commands
+     (addunused, configremote, dead, describe, dropunused, enableremote,
+     expire, fix, importfeed, init, initremote, log, merge, migrate, reinit,
+     reinject, rekey, renameremote, rmurl, semitrust, setpresentkey, trust,
+     unannex, undo, uninit, untrust, unused, upgrade)
+   * log: When --raw-date is used, display only seconds from the epoch, as
+     documented, omitting a trailing "s" that was included in the output
+     before.
+   * addunused: Displays the names of the files that it adds.
+   * reinject: Fix support for operating on multiple pairs of files and keys.
+   * importfeed: Support -J
+   * importfeed: Support --json-progress
+   * sync: Fix buggy handling of --no-pull and --no-push when syncing
+     --content. With --no-pull, avoid downloading content, and with
+     --no-push avoid uploading content. This was done before, but
+     inconsistently.
+   * uninit: Avoid buffering the names of all annexed files in memory.
+   * sync: Started a transition to --content being enabled by default.
+     When used without --content or --no-content, warn about the upcoming
+     transition, and suggest using one of the options, or setting
+     annex.synccontent.
+   * sync: Added -g as a short option for --no-content.
+   * Fix bug in -z handling of trailing NUL in input.
+   * version: Avoid error message when entire output is not read.
+   * Fix excessive CPU usage when parsing yt-dlp (or youtube-dl) progress
+     output fails.
+   * Use --progress-template with yt-dlp to fix a failure to parse
+     progress output when only an estimated total size is known.
+   * When yt-dlp is available, default to using it in preference to
+     youtube-dl. Using youtube-dl is now deprecated, and git-annex no longer
+     tries to parse its output to display download progress
+   * repair: Fix handling of git ref names on Windows.
+   * Large speed up to importing trees from special remotes that contain a lot
+     of files, by only processing changed files.
+   * Speed up importing trees from special remotes somewhat by avoiding
+     redundant writes to sqlite database.
+ .
+   [  ]
+   * Backported fresh snapshot
+Checksums-Sha1:
+ 4041501f408f01e599c78037ed4d0f68458acefd 50250400 git-annex-standalone_10.20230407+git277-g2c2a84caac-1~ndall+1_amd64.deb
+ 029f889cbf27d12a4acb3d58446e0d85e9c4dfc5 18475 git-annex_10.20230407+git277-g2c2a84caac-1~ndall+1_amd64.buildinfo
+Checksums-Sha256:
+ d93bded3c0c39b4d6e5ac7b9b9c89c869c93d56b69ac066bcf0517700389e557 50250400 git-annex-standalone_10.20230407+git277-g2c2a84caac-1~ndall+1_amd64.deb
+ 27f523a06db5648e09f82051c0edcb68e48980cdb10af9f342ff628d28206ddb 18475 git-annex_10.20230407+git277-g2c2a84caac-1~ndall+1_amd64.buildinfo
+Files:
+ fd3c2c51dbb2638f632ca9a9df782b07 50250400 utils optional git-annex-standalone_10.20230407+git277-g2c2a84caac-1~ndall+1_amd64.deb
+ 1ffa66a0b5f509d2c02a8dd84890014f 18475 utils optional git-annex_10.20230407+git277-g2c2a84caac-1~ndall+1_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBCgAdFiEEE6EJMpYVRYQkXgMAyY/EnTbasX8FAmR9UycACgkQyY/EnTba
+sX8GlAv5ASgTsdenqO0AHmQy1zCr/i4TNZHhFU1D9QnBemBmTMSL1/13gCX/19yn
+gVR8r4Mud7/r220o5ga7iCWrkml1/8LApqsJ+rC/lvfv176kt/P1DfObYhji09O+
+lnCEXFvZ/a0rL4KXgkoqY2uH2Icuyq721n7Qpp3eNPSReIDnmCYkMBH+snnOaFzw
+n9slQUaAsaEhWwiUAcqKr8IwjYSHGdVsFhKrCuWozaE9h5cNbrlUyuDF00ACVU2z
+l1eLWWxgh+ybf18ps6zX72f8DVeh9ZPvFjNA7I7zFiA8Fib8HfBnV/S7bkyfpV7Z
+YKQeHU9GiZ/xyKwj/NgTcCp1zKQLPtcVvOrO4I+y8F8GbjDnMAzPxtboOmc3rV9T
+HHE5DA700bn4IgR7pgF51/ZYZtDdFJZv+HjS+zVEzoYq1qXmkOcTyHyvTzoMdXDj
+b7iKJviANzT4FhXWyHjljkqHgVXMpwnBoXH4KxJN6eEOi/wYJdMhd9VKvTHkC4Wn
+2t/LzVn0
+=jReh
+-----END PGP SIGNATURE-----
