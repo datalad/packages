@@ -15,7 +15,7 @@ if [ "$latest" != "$current" ]; then
     echo -e "dmg osx\nexe windows" | while read -r ext os; do
         p="$src/$latest"/*.$ext
         if /bin/ls $p >& /dev/null; then
-            cp "$p" "$os"/
+            cp $p "$os"/
         else
             echo "I: no $p -- thus no build for $os. Skipped"
         fi
