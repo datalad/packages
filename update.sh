@@ -11,7 +11,8 @@ current=$(cat latest-version)
 
 if [ "$latest" != "$current" ]; then
     cp -L "$src/$latest"/*.{deb,changes,dsc,tar.gz} neurodebian/
-    ( cd neurodebian/; for f in *.ndall*; do mv "$f" "${f//.ndall/~ndall}"; done; )
+    ls -ld neurodebian/*.ndall* 2>/dev/null && \
+        ( cd neurodebian/; for f in *.ndall*; do mv "$f" "${f//.ndall/~ndall}"; done; ) || :
     echo -e "dmg osx\nexe windows" | while read -r ext os; do
         p="$src/$latest"/*.$ext
         if /bin/ls $p >& /dev/null; then
