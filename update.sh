@@ -42,8 +42,8 @@ if [ "$#" = 0 ]; then
     fi
 else
     for version in "$@"; do
-        if /bin/ls neurodebian/git-annex*_"${version}-"*.deb &>/dev/null; then
-            echo "I: $version was already copied (.deb at least). Skipping"
+        if /bin/ls */git-annex*"${version}"* &>/dev/null; then
+            echo "I: $version was already copied (something with that version at least). Skipping"
             continue
         fi
         echo "I: copying version $version"
