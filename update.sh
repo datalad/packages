@@ -13,10 +13,6 @@ cd "$(dirname "$0")"
 
 function copy_version() {
     version="$1"
-    if /bin/ls neurodebian/git-annex*_"${version}-"*.deb &>/dev/null; then
-        echo "I: $version was already copied (.deb at least). Skipping"
-        return
-    fi
     cp -L "$src/$version"/*.{deb,changes,dsc,tar.gz} neurodebian/
     if ls -ld neurodebian/*.ndall* 2>/dev/null ; then
         ( cd neurodebian/; for f in *.ndall*; do mv "$f" "${f//.ndall/~ndall}"; done; )
@@ -44,6 +40,10 @@ if [ "$#" = 0 ]; then
     fi
 else
     for version in "$@"; do
+        if /bin/ls neurodebian/git-annex*_"${version}-"*.deb &>/dev/null; then
+            echo "I: $version was already copied (.deb at least). Skipping"
+            continue
+        fi
         echo "I: copying version $version"
         copy_version "$version"
         datalad save -m "Added version $version" -d^ ./
