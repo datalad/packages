@@ -13,7 +13,9 @@ cd "$(dirname "$0")"
 
 function copy_version() {
     version="$1"
-    cp -L "$src/$version"/*.{deb,changes,dsc,tar.gz} neurodebian/
+    if ! cp -L "$src/$version"/*.{deb,changes,dsc,tar.gz} neurodebian/; then
+        echo "I: no Debian builds for $version"
+    fi
     if ls -ld neurodebian/*.ndall* 2>/dev/null ; then
         ( cd neurodebian/; for f in *.ndall*; do mv "$f" "${f//.ndall/~ndall}"; done; )
     fi
