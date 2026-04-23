@@ -6,3 +6,4 @@ infrastructure of the DataLad project.
 
 ATM it is WiP, see https://github.com/datalad/packages/issues .
 
+**Disclaimer**: builds of anything else than DataLad, are **non-official** and could have been patched.
